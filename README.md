@@ -13,3 +13,7 @@ the roadmap can evolve according to my learning
 
 ## 📅Quest log
 06/04/2022 : build minimal Node.js project & starting learn JS
+
+## 🖥️ init project
+* ```npm install```
+* ```npm start```
