@@ -1,0 +1,29 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "description": "This repository will contain my daily work on several technologies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojinet/learning.git"
+  },
+  "keywords": [
+    "learning",
+    "blockchain",
+    "Javascript",
+    "Node",
+    "React",
+    "Solidity",
+    "web3"
+  ],
+  "author": "Mojinet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mojinet/learning/issues"
+  },
+  "homepage": "https://github.com/mojinet/learning#readme"
+}
