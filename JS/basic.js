@@ -1,9 +1,9 @@
-console.log("Welcome to basic !")
+ console.log("Welcome to basic !")
 
 // ** Variables & type
 // variables : use camelCase
-let limitedScope = 5 // limited scope
-var largeScope = 15 // large scope
+let limitedScope = 5 // limited scope : bloc
+var largeScope = 15 // large scope : function
 const IMMUTABLE = 10 // immutable USE CAPITAL
 
 // Type
@@ -23,6 +23,14 @@ console.log(strangeNumber == 0.3) // false ! 0.1 + 0.2 != 0.3 !
 // number limit
 console.log(Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2) // true :o
 console.log(BigInt(Number.MAX_SAFE_INTEGER) + 2n === BigInt(Number.MAX_SAFE_INTEGER) + 2n) // true : use BigInt & n after number
+// == & ===
+console.log(" == & ===")
+console.log( 5 == "5" ) // true, dont test type, just value
+console.log( 5 === "5" ) // false, test type & value
+// || &&
+console.log(" || &&")
+console.log (true || false) // true
+console.log (true && false) // false
 
 // concat
 let firstName = "Bill"
@@ -46,16 +54,30 @@ titleOfBook = myBook[propertyToAccess]
 console.log(titleOfBook)
 
 //class
-// basic class with constructor
+// create class
 class Book{
-    constructor(title, author, isAvailable){
+    constructor(title, author, isAvailable, price){
         this.title = title
         this.author = author
         this.isAvailable = isAvailable
+        this.price = price
+    }
+    showPrice(){
+        console.log("the price of " + this.title + " is " + this.price + "$")
+    }
+    setPrice(price){
+        this.price = price
+    }
+
+    static whoIAm(){
+        console.log("Hey ! i'm a class, instance me !")
     }
 }
 // use class
-let otherBook = new Book("its an other book", "bob michel", true)
+let otherBook = new Book("its an other book", "bob michel", true, 100)
+otherBook.setPrice(25)
+otherBook.showPrice()
+Book.whoIAm() // use static method
 
 // ** arrays
 let guests = [] // init array
@@ -71,14 +93,91 @@ guests.push("Pop") // place in end of array
 guests.unshift("Pup") // place in start of array
 guests.pop() // delete last element
 
-// fonctions
+// ** fonctions
+ // traditional
+ function addition(a, b){
+    return a + b
+ }
+ console.log(addition(54,21))
+ // in variable
+ const multiple = (a, b) => {
+    return a*b
+ }
+ console.log(multiple(5,5))
+ // recursive in order array
+ const arrayOfNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+ const searchInArray = (searchNumber, array, min, max) =>{
+    if (min > max){
+        return false
+    }
+    let middle = Math.floor((min + max) / 2)
+    let currentNumber =  array[middle];
+     if (currentNumber === searchNumber){
+         return true
+     }else{
+         currentNumber < searchNumber ?
+             searchInArray(searchNumber, array, min+1, middle) :
+             searchInArray(searchNumber, array, middle, max-1)
+     }
+ }
+ searchInArray(15,arrayOfNumber,0,arrayOfNumber.length)
 
-// loops
+// ** loops
+ // for : determined loop
+ const repeat = 5
+ for (let i = 0; i < repeat; i++){
+     console.log("i repeat")
+ }
+ // for...in : need indice
+ const passengers = [
+     "will",
+     "bob",
+     "charlie"
+ ]
+ for(let i in passengers){
+     console.log(passengers[i])
+ }
+ // for...of : dont need indice
+ for(let passenger of passengers){
+     console.log(passenger)
+ }
+ // while : undetermined loop
+ let random = Math.floor(Math.random()*10)+1 //random number 1 - 10
+ console.log(random)
+ while (random > 0){
+     random--
+ }
 
 // conditions
+let userConnected = true
+if (userConnected){
+    console.log("Your connected !")
+}else{
+    console.log("Not connected :(")
+}
 
-// dates
+let choice = 1
+switch (choice){
+    case 1 :
+        console.log("Choice 1")
+        break
+    case 2 :
+        console.log("Choice 2")
+        break
+    default :
+        console.log("other choice")
+}
 
 // errors
+ try{
+    // code who can provoque error
+ }catch (error){
+    console.log(error)
+ }finally {
+     // executed in all case
+ }
 
-// promises
+ // dates
+ // promises
+
+ console.error("this is an error message")
