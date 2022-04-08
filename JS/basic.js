@@ -1,7 +1,10 @@
  console.log("Welcome to basic !")
 
-// ** Variables & type
-// variables : use camelCase
+ /***************************************************/
+ // ** Variables & type
+ /***************************************************/
+
+// Variables : use camelCase
 let limitedScope = 5 // limited scope : bloc
 var largeScope = 15 // large scope : function
 const IMMUTABLE = 10 // immutable USE CAPITAL
@@ -16,17 +19,34 @@ number = undefined // usualy not affected
 number = Infinity // or -Infinity
 number = Number.MAX_SAFE_INTEGER // maximum of number
 
-// ** operation
-// prefer use whole number !
+// Some method on string
+let thisIsAString = "Hello i'm a string !"
+thisIsAString.length
+thisIsAString.toLowerCase()
+thisIsAString.toUpperCase()
+thisIsAString.trim()
+thisIsAString.charAt(0)
+thisIsAString.charCodeAt(0)
+thisIsAString.lastIndexOf("m")
+thisIsAString
+
+ /***************************************************/
+ // ** Operation
+ /***************************************************/
+
+// Prefer use whole number !
 strangeNumber = 0.1 + 0.2
 console.log(strangeNumber == 0.3) // false ! 0.1 + 0.2 != 0.3 !
-// number limit
+
+// Number limit
 console.log(Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2) // true :o
 console.log(BigInt(Number.MAX_SAFE_INTEGER) + 2n === BigInt(Number.MAX_SAFE_INTEGER) + 2n) // true : use BigInt & n after number
+
 // == & ===
 console.log(" == & ===")
 console.log( 5 == "5" ) // true, dont test type, just value
 console.log( 5 === "5" ) // false, test type & value
+
 // || &&
 console.log(" || &&")
 console.log (true || false) // true
@@ -37,24 +57,32 @@ let firstName = "Bill"
 let lastName = "Gates"
 let fullName = firstName + " " + lastName
 
-// ** Object
+ /***************************************************/
+ // ** Object
+ /***************************************************/
+
 // JSON
 let myBook = {
     title: 'My learning',
     author: 'Mojinet',
     isAvailable: false
 }
-// use dot notation to use property
+
+// Use dot notation to use property
 let titleOfBook = myBook.title
 let aboutBook = myBook.title + " is writing by " + myBook.author + " and is " + (myBook.isAvailable == true ? "available" : "not available")
 console.log(aboutBook)
-// use bracket notation to use property
+
+// Use bracket notation to use property
 let propertyToAccess = "title"
 titleOfBook = myBook[propertyToAccess]
 console.log(titleOfBook)
 
-//class
-// create class
+ /***************************************************/
+ // ** Class
+ /***************************************************/
+
+// Create class
 class Book{
     constructor(title, author, isAvailable, price){
         this.title = title
@@ -73,38 +101,53 @@ class Book{
         console.log("Hey ! i'm a class, instance me !")
     }
 }
-// use class
+
+// Use class
 let otherBook = new Book("its an other book", "bob michel", true, 100)
 otherBook.setPrice(25)
 otherBook.showPrice()
 Book.whoIAm() // use static method
 
-// ** arrays
+ /***************************************************/
+ // ** Array
+ /***************************************************/
+
 let guests = [] // init array
 guests = ["toto", "titi", "tata", "tutu"]
 console.log(guests[1]) // access to 2nd occurence
-// be carefull : passed by reference
+
+// Be carefull : passed by reference
 let otherGuests = guests
 otherGuests[0] = "Bob"
 console.log(guests[0] + " " + otherGuests[0]) // Bob Bob != toto Bob
-// arrays methode
+
+// Arrays methode
 guests.length // lenght of array : 4
 guests.push("Pop") // place in end of array
 guests.unshift("Pup") // place in start of array
 guests.pop() // delete last element
 
-// ** fonctions
- // traditional
+// Map
+const map1 = guests.map(x => "Mr " + x)
+console.log(map1)
+
+ /***************************************************/
+ // ** Fonction
+ /***************************************************/
+
+ // Traditional
  function addition(a, b){
     return a + b
  }
  console.log(addition(54,21))
- // in variable
- const multiple = (a, b) => {
-    return a*b
+
+ // In variable
+ const multiple = (a, b, c = 5) => { // c is optional and have a default value
+    return a*b+c
  }
  console.log(multiple(5,5))
- // recursive in order array
+
+ // Recursive in order array
  const arrayOfNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
  const searchInArray = (searchNumber, array, min, max) =>{
     if (min > max){
@@ -122,13 +165,24 @@ guests.pop() // delete last element
  }
  searchInArray(15,arrayOfNumber,0,arrayOfNumber.length)
 
-// ** loops
- // for : determined loop
+ // anonym function et setInterval
+ /*
+ const int = setInterval(() =>{
+     console.log("hi")
+ },250)
+*/
+
+ /***************************************************/
+ // ** Loops
+ /***************************************************/
+
+ // For : determined loop
  const repeat = 5
  for (let i = 0; i < repeat; i++){
      console.log("i repeat")
  }
- // for...in : need indice
+
+ // For...in : need indice
  const passengers = [
      "will",
      "bob",
@@ -137,18 +191,29 @@ guests.pop() // delete last element
  for(let i in passengers){
      console.log(passengers[i])
  }
- // for...of : dont need indice
+
+ // For...of : dont need indice
  for(let passenger of passengers){
      console.log(passenger)
  }
- // while : undetermined loop
+
+ // While : undetermined loop
  let random = Math.floor(Math.random()*10)+1 //random number 1 - 10
  console.log(random)
  while (random > 0){
      random--
  }
 
-// conditions
+ // Do... while : at least once
+ do{
+     //something
+ }while(false) //
+
+ /***************************************************/
+ // ** Conditions
+ /***************************************************/
+
+ // If, else if, else
 let userConnected = true
 if (userConnected){
     console.log("Your connected !")
@@ -156,6 +221,7 @@ if (userConnected){
     console.log("Not connected :(")
 }
 
+// Switch
 let choice = 1
 switch (choice){
     case 1 :
@@ -168,7 +234,10 @@ switch (choice){
         console.log("other choice")
 }
 
-// errors
+ /***************************************************/
+ // ** Error
+ /***************************************************/
+
  try{
     // code who can provoque error
  }catch (error){
@@ -176,8 +245,5 @@ switch (choice){
  }finally {
      // executed in all case
  }
-
- // dates
- // promises
 
  console.error("this is an error message")
