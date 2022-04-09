@@ -8,6 +8,7 @@ let boxs = document.getElementsByClassName("box") // search by Class
 let links = document.getElementsByTagName('a') // Search by generique tagname
 let firstSpan = document.querySelector('div > span') // css selector : just first result
 let spans = document.querySelectorAll('div > span') // css selector : all result in array
+let body = document.querySelector('body')
 
 // Navigation
 let childOfBoxs = boxs.children // get child
@@ -50,4 +51,16 @@ links[0].addEventListener("click", (e) =>{
     window.alert("clicked !")
     e.stopPropagation() // cancel propagation to parents elements
     e.preventDefault() // cancel the default reaction
+})
+
+// Mouse move
+body.addEventListener('mousemove', (e) =>{
+    let x = e.offsetX // x position of mouse
+    let y = e.offsetY // y position of mouse
+})
+
+// input text
+const name = document.getElementById("name")
+name.addEventListener("input", (e) => {
+    console.log(e.target.value) // return value of text in input #name
 })
