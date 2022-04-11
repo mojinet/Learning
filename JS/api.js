@@ -39,3 +39,21 @@ fetch(url, myInit)// with custom request
     .catch((error)=> {
         console.log(error)
     })
+
+// Send
+let jsonBody = [ // our object
+    name= 'Bob',
+    age= 25
+]
+fetch("url", {
+    method: 'POST', // can use PUT
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(jsonBody) // convert for send data in JSON
+});
+
+// Convert
+// JSON => JS Object : JSON.parse(json)
+// JS => JSON : JSON.stringify(object)
