@@ -42,6 +42,15 @@ returnAPromiseWithNumber2()
         // Do something
     });
 
+// multiple-promise in parallel
+Promise.all([get(url1), get(url2)])
+    .then(function(results) { // executed when all promise is solved
+        return Promise.all([results, post(url3)]];
+    })
+    .then(function(allResults) {
+        // We are done here !
+    });
+
 // Async/await
 async function fonctionAsynchrone1() {/* code asynchronous */}
 async function fonctionAsynchrone2() {/* code asynchronous */}
@@ -51,3 +60,14 @@ async function fonctionAsynchrone3() {
     const value2 = await fonctionAsynchrone2();
     return value1 + value2;
 }
+
+// parallele
+async function requests() {
+    var getResults = await Promise.all([get(url1), get(url2)]);
+    var postResult = await post(url3);
+    return [getResults, postResult];
+}
+
+requests().then(function(allResults) {
+    // We are done here !
+});
