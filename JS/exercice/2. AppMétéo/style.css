@@ -20,19 +20,22 @@ body {
     height: 600px;
     border: 1px solid white;
     background: linear-gradient(45deg, rgb(36, 64, 94), rgb(117, 72, 97));
+    display: flex;
+    flex-direction: column;
 }
 
 h1{
     text-align: center;
-    margin: 1em;
+    padding: 1em;
     border-bottom: 1px solid white;
 }
 
+/*general information*/
 #information{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 300px;
 }
 
 #information .information-picture{
@@ -42,9 +45,11 @@ h1{
     align-items: flex-end;
     height: 100%;
 }
+
 #information .information-picture img{
     height: 120%;
 }
+
 #information .information-data{
     flex-grow: 1;
     height: 100%;
@@ -55,6 +60,28 @@ h1{
     font-size: 3em;
 }
 
+/*Prevision cell*/
 #prevision{
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+}
+
+#hours, #days{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    flex-grow: 1;
+}
+
+#hours div, #days div{
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#hours div:last-child, #days div:last-child{
+    border-right: 0px solid white;
 }
