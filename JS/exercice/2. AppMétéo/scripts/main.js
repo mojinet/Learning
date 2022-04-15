@@ -4,15 +4,16 @@ const API_KEY = "5b00684f02da1f25a31a387bb21ba0b4" // todo .env
 const meteoInfo = document.getElementById("meteo-info")
 const meteoTemperature = document.getElementById("meteo-temperature")
 const meteoTown = document.getElementById("meteo-town")
+const meteoIcon = document.getElementById("meteo-icon")
 
 const tempHour = [
-    document.querySelector("#h10"),
-    document.querySelector("#h13"),
-    document.querySelector("#h16"),
-    document.querySelector("#h19"),
-    document.querySelector("#h22"),
-    document.querySelector("#h1"),
-    document.querySelector("#h4"),
+    document.querySelector("#h3"),
+    document.querySelector("#h6"),
+    document.querySelector("#h9"),
+    document.querySelector("#h12"),
+    document.querySelector("#h15"),
+    document.querySelector("#h18"),
+    document.querySelector("#h21"),
 ]
 
 const tempDay = [
@@ -46,6 +47,7 @@ function bindValue(value){
     meteoTown.innerText = value.timezone
     meteoTemperature.innerText = Math.floor(value.current.temp) + "°"
     meteoInfo.innerText = value.current.weather[0].description
+    meteoIcon.setAttribute("src",`http://openweathermap.org/img/wn/${value.current.weather[0].icon}@4x.png`)
 
     // bind hours
     for (let hourIndex = 0; hourIndex < 7; hourIndex++){
