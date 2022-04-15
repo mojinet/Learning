@@ -1,5 +1,7 @@
+// Load API Key
+require('dotenv').config()
+const API_KEY = process.env.API_METEO
 
-const API_KEY = "5b00684f02da1f25a31a387bb21ba0b4" // todo .env
 // node elt
 const meteoInfo = document.getElementById("meteo-info")
 const meteoTemperature = document.getElementById("meteo-temperature")
