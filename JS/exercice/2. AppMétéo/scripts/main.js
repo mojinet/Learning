@@ -65,11 +65,4 @@ function bindValue(value){
             <span class="day">${day}</span> <br>
             <span class="day-temp">${Math.floor(value.daily[dayIndex+1].temp.day)}°</span>`
     }
-
-
-
-
-    // tempDay[0].innerHTML = `<span class="day">${day}</span> <br> <span class="day-temp">${temp}°</span>`
-
-    console.log(value)
 }
