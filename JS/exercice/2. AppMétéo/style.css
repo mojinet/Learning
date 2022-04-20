@@ -85,3 +85,20 @@ h1{
 #hours div:last-child, #days div:last-child{
     border-right: 0px solid white;
 }
+
+#overlay-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgb(59,50,50), rgb(22,28,29));
+    transition: opacity 1s;
+}
+
+.hiden-overlay{
+    opacity: 0;
+}

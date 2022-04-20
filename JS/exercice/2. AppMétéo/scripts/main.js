@@ -1,12 +1,13 @@
 // Load API Key
 require('dotenv').config()
-const API_KEY = process.env.API_METEO
+const API_KEY = 'process.env.API_METEO'
 
 // node elt
 const meteoInfo = document.getElementById("meteo-info")
 const meteoTemperature = document.getElementById("meteo-temperature")
 const meteoTown = document.getElementById("meteo-town")
 const meteoIcon = document.getElementById("meteo-icon")
+const overlay = document.getElementById("overlay-loader")
 
 const tempHour = [
     document.querySelector("#h3"),
@@ -69,4 +70,7 @@ function bindValue(value){
             <span class="day">${day}</span> <br>
             <span class="day-temp">${Math.floor(value.daily[dayIndex+1].temp.day)}°</span>`
     }
+
+    overlay.classList.add('hiden-overlay')
 }
+
