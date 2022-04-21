@@ -3,7 +3,9 @@ let allPokemon = []
 let allSortPokemons = []
 
 let itemsElt = document.getElementById('items')
+let loaderElt = document.getElementById('loader')
 let searchElt = document.getElementById('search')
+
 const types = {
     grass: '#78c850',
     ground: '#E2BF65',
@@ -54,6 +56,7 @@ function fetchPokemonComplet(pokemon){
 
                     // when binding is ending
                     if (allPokemon.length === 151){
+                        loaderElt.classList.add('hiden-loader')
                         bindHTML()
                     }
                 })
