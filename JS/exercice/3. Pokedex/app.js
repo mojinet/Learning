@@ -5,6 +5,7 @@ let allSortPokemons = []
 let itemsElt = document.getElementById('items')
 let loaderElt = document.getElementById('loader')
 let searchElt = document.getElementById('search')
+let formElt = document.getElementById('poke-form')
 
 const types = {
     grass: '#78c850',
@@ -84,6 +85,7 @@ function createItem(pokemon){
         imgElt.setAttribute('src', pokemon.img)
         let nameElt = document.createElement('span')
         nameElt.innerText = pokemon.name
+        nameElt.classList.add('pokemon-name')
         let idElt = document.createElement('span')
         idElt.innerText = `ID #${pokemon.id}`
         // append
@@ -112,6 +114,39 @@ function addPoke(count){
     let pokemonToDisplay = allPokemon.slice(index, index + count)
     pokemonToDisplay.forEach( pokemon => createItem(pokemon))
     index += count;
+}
+
+// dynamique search
+searchElt.addEventListener('keyup', searchEngine)
+// search on submit
+formElt.addEventListener('submit', (e) => {
+    e.preventDefault()
+    searchEngine()
+})
+
+function searchEngine(){
+    let filter, allCards, allTitles
+    filter = searchElt.value.toUpperCase()
+    allCards = document.querySelectorAll('.item')
+    allTitles = document.querySelectorAll('.pokemon-name')
+
+    //display all
+    if (index < 151){
+        addPoke(130)
+    }
+
+    // if search input value is in name of item : display
+    allTitles.forEach( (value,key) => {
+        let name = value.innerText
+
+        if(name.toUpperCase().indexOf(filter) > -1){
+            allCards[key].style.display = 'flex'
+        }else{
+            allCards[key].style.display = 'none'
+        }
+    })
+
+
 }
 
 // start
