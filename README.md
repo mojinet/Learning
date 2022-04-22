@@ -12,7 +12,8 @@ the roadmap can evolve according to my learning
 * 6 - etherjs|web3.js & hardhat|truffle
 
 ## 📅Quest log
-06/04/2022 : build minimal Node.js project & starting learn JS
+06/04/2022 : build minimal Node.js project & starting learn JS  
+👉 https://github.com/mojinet/Learning/tree/main/JS
 
 ## 🖥️ init project
 * ```npm install```
