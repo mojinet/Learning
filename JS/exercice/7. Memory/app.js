@@ -14,15 +14,45 @@ const imgUrl = [
 ]
 const backSide = 'img/backSide.png'
 const boardGameElt = document.getElementById('game')
-let pairOfCards = 6
 let cards = []
 let flipCount = 0
 let firstFlipSrc = {src: null, elt: null}
 let secondFlipSrc = {src: null, elt: null}
 
+// Difficulty mode
+const modeEasyElt = document.getElementById('easy')
+const modeNormalElt = document.getElementById('normal')
+const modeHardElt = document.getElementById('hard')
+const MODE = {
+    EASY: {
+        pairOfCards: 4,
+        timeReveal: 1000,
+    },
+    NORMAL: {
+        pairOfCards: 8,
+        timeReveal: 600,
+    },
+    HARD: {
+        pairOfCards: 12,
+        timeReveal: 400,
+    },
+}
+let selectedMode = MODE.NORMAL
+
+modeEasyElt.addEventListener('click', () => changeMode(MODE.EASY))
+modeNormalElt.addEventListener('click',() => changeMode(MODE.NORMAL) )
+modeHardElt.addEventListener('click', () => changeMode(MODE.HARD))
+
+function changeMode(choice){
+    selectedMode = choice
+    makeCardsElt()
+    initGameBoard()
+}
+
 // Create a pair of div.card elt
 function makeCardsElt(){
-    for (let i = 0; i < pairOfCards; i++){
+    cards = []
+    for (let i = 0; i < selectedMode.pairOfCards; i++){
         for (let j = 0; j < 2; j++) {
             // Create card
             let pairCard = document.createElement('div')
@@ -80,7 +110,7 @@ function flipCard(event) {
                     firstFlipSrc.elt.classList.remove('flip')
                     secondFlipSrc.elt.classList.remove('flip')
                     flipCount = 0
-                },500)
+                },selectedMode.timeReveal)
             }
         }
     }
