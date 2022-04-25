@@ -3,20 +3,21 @@ const rightElt = document.getElementById('right')
 const controlElts = document.getElementById('controls').children
 const slideImgElt = document.getElementById('slider-img')
 const img = [
-    'img1.jpg',
-    'img2.jpg',
-    'img3.jpg',
+    'https://www.picsum.photos/500',
+    'https://www.picsum.photos/600',
+    'https://www.picsum.photos/700',
 ]
 
 // init
 controlElts[0].classList.add('controlSelect')
-let indexImg = 1
+let indexImg = 0
+slideImgElt.setAttribute('src', `${img[indexImg]}`)
 let infiniteLoop;
 
 // infinite loop for display all img
 function runInterval(){
     infiniteLoop = setInterval(()=>{
-        slideImgElt.setAttribute('src', `imgs/${img[indexImg]}`)
+        slideImgElt.setAttribute('src', `${img[indexImg]}`)
         updateControlSelect()
         updateIndex()
     },1000)
@@ -50,7 +51,7 @@ function updateControlSelect(){
 // refresh with new value
 function refreshRender(value = -1){
     updateControlSelect()
-    slideImgElt.setAttribute('src', `imgs/${img[indexImg]}`)
+    slideImgElt.setAttribute('src', `${img[indexImg]}`)
     clearInterval(infiniteLoop)
     runInterval()
 }
