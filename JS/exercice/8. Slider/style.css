@@ -53,7 +53,11 @@ body {
   transition-duration: 0.5s;
 }
 
-.control:hover{
+.controlSelect{
   background-color: #f1f1f1;
+  transition-duration: 0.5s;
+}
+.control:hover{
+  transform: scale(1.1);
   transition-duration: 0.5s;
 }
