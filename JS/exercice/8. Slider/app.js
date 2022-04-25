@@ -16,7 +16,6 @@ let infiniteLoop;
 // infinite loop for display all img
 function runInterval(){
     infiniteLoop = setInterval(()=>{
-        console.log(indexImg)
         slideImgElt.setAttribute('src', `imgs/${img[indexImg]}`)
         updateControlSelect()
         updateIndex()
