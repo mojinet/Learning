@@ -1,0 +1,11 @@
+.main-title{
+    background-color: green;
+    color: white;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+.logo{
+    width: 20px;
+    margin-right: 1rem;
+}
