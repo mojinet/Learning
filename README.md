@@ -14,6 +14,8 @@ the roadmap can evolve according to my learning
 ## 📅Quest log
 06/04/2022 : build minimal Node.js project & starting learn JS  
 👉 https://github.com/mojinet/Learning/tree/main/JS
+26/04/2022 : starting learn React
+👉 https://github.com/mojinet/Learning/tree/main/React
 
 ## 🖥️ init project
 * ```npm install```
