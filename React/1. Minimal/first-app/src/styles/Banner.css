@@ -1,11 +1,19 @@
-.main-title{
-    background-color: green;
-    color: white;
-    margin: 0;
-    padding: 1rem;
-    text-align: center;
+.lmj-banner {
+	color: black;
+	text-align: right;
+	padding: 32px;
+	border-bottom: solid 3px black;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	align-items: center;
 }
-.logo{
-    width: 20px;
-    margin-right: 1rem;
+
+.lmj-title {
+	padding-left: 32px;
+}
+
+.lmj-logo {
+	height: 45px;
+	width: 45px;
 }

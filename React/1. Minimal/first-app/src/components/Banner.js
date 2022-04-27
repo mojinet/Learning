@@ -1,13 +1,7 @@
 import '../styles/Banner.css'
-import logo from '../assets/logo.png'
 
-function Banner(){
-    return <header>
-        <h1 className='main-title'>
-            <img src={logo} alt="House of plants" className='logo'/>
-            House of plants
-        </h1>
-    </header>
+function Banner({ children }) {
+	return <div className='lmj-banner'>{children}</div>
 }
 
 export default Banner

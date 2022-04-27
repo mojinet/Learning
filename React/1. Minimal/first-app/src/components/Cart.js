@@ -1,20 +1,20 @@
 import '../styles/Cart.css'
 
-const plants = [
-    {name:'monstera', price:8},
-    {name:'lierre', price:10},
-    {name:'bouquets de fleurs', price:15},
-]
-function Cart(){
-    return <div id="cart">
-        <h2>Panier</h2>
-        <ul>
-            <li> {plants[0].name} : {plants[0].price}€ </li>
-            <li> {plants[1].name} : {plants[1].price}€ </li>
-            <li> {plants[2].name} : {plants[2].price}€ </li>
-        </ul>
-        <span>Total: {plants[0].price + plants[1].price + plants[2].price}€ </span>
-    </div>
+function Cart() {
+	const monsteraPrice = 8
+	const ivyPrice = 10
+	const flowerPrice = 15
+	return (
+		<div className='lmj-cart'>
+			<h2>Panier</h2>
+			<ul>
+				<li>Monstera : {monsteraPrice}€</li>
+				<li>Lierre : {ivyPrice}€</li>
+				<li>Fleurs : {flowerPrice}€</li>
+			</ul>
+			Total : {monsteraPrice + ivyPrice + flowerPrice}€
+		</div>
+	)
 }
 
 export default Cart
