@@ -16,7 +16,7 @@ the roadmap can evolve according to my learning
 👉 https://github.com/mojinet/Learning/tree/main/JS  
 26/04/2022 : starting learn React  
 👉 https://github.com/mojinet/Learning/tree/main/React  
-👉 memento : https://docs.google.com/document/d/1-a1TxHeOipdRlzqHYwKw9ls_d_6CNn51uQq7l0_pmHw/edit?usp=sharing
+👉 memento 🇫🇷 : https://docs.google.com/document/d/1-a1TxHeOipdRlzqHYwKw9ls_d_6CNn51uQq7l0_pmHw/edit?usp=sharing
 
 ## 🖥️ init project
 * ```npm install```
