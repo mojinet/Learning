@@ -5,8 +5,31 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
+    .top-progress{
+        height: 1rem;
+        background-color: #31b572;
+    }
+
+    .timers{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-grow: 1;
+
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
 
     .controls{
         display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin-bottom: 1rem;
+
+        img{
+            width: 40px;
+        }
     }
 }
