@@ -7,11 +7,12 @@ import {useState, useEffect} from "react";
 function Pomodoro(){
     const [timer, setTimer] = useState(10)
     useEffect(() =>{
-        const timer = setInterval(()=>{
+        const mainInterval = setInterval(()=>{
+            timer > 0 && setTimer(t => t - 1)
+            timer <= 0 && clearInterval(mainInterval)
             console.log(timer)
-            setTimer(timer - 1)
         },1000)
-        return () => clearInterval(timer)
+        return () => clearInterval(mainInterval)
     },[timer])
 
     return (
