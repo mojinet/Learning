@@ -1,31 +1,37 @@
 import '../style/Pomodoro.scss'
 import Control from "./Control";
-// import Timer from "./Timer";
 import {useState, useEffect} from "react";
+import Timer from "./Timer";
+import Progress from "./Progress";
 
 function Pomodoro(){
-    const TIMER_WORK = 5
-    const TIMER_PAUSE = 10
+    const TIMER_WORK = 2
+    const TIMER_PAUSE = 5
     const [timer, setTimer] = useState(TIMER_WORK)
     const [timerPause, setTimerPause] = useState(TIMER_PAUSE)
     const [intervalId, setIntervalId] = useState(0)
+    const [timeWork, setTimeWork] = useState(true)
 
     useEffect(() =>{
-        timer <= 0 && clearInterval(intervalId)
-    },[timer])
+        if(timer <= 0){
+            clearInterval(intervalId)
+            setTimeWork(t => false)
+            startTimer()
+        }
+    },[timer, timerPause, timeWork])
 
-    const startPauseTimer = () => {
-        clearInterval(intervalId)
-        const newIntervalId = setInterval(()=>{
-            timerPause > 0 && setTimerPause(t => t - 1)
-        },1000)
-        setIntervalId(newIntervalId)
-    }
     const startTimer = () => {
         clearInterval(intervalId)
-        const newIntervalId = setInterval(()=>{
-            timer > 0 && setTimer(t => t - 1)
-        },1000)
+        let newIntervalId = null
+        if (timeWork){
+            newIntervalId = setInterval(()=>{
+                timer > 0 && setTimer(t => t - 1)
+            },1000)
+        }else{
+            newIntervalId = setInterval(()=>{
+                timerPause > 0 && setTimerPause(t => t - 1)
+            },1000)
+        }
         setIntervalId(newIntervalId)
     }
 
@@ -35,22 +41,17 @@ function Pomodoro(){
 
     const resetTimer = () => {
         clearInterval(intervalId)
+        setTimeWork(t => true)
         setTimer(TIMER_WORK)
         setTimerPause(TIMER_PAUSE)
     }
 
-    const displayTime = (time) => {
-        let min = Math.trunc(time/60) < 10 ? '0' + Math.trunc(time/60) : Math.trunc(time/60)
-        let sec = time%60 < 10 ? '0' + time%60 : time%60
-        return min + ':' + sec
-    }
-
     return (
         <div className="Pomodoro">
-            <div className="top-progress"></div>
+            <Progress timerWork={timer} timerPause={timerPause}/>
             <div className="timers">
-                <div>{displayTime(timer)}</div>
-                <div>{displayTime(timerPause)}</div>
+                <Timer time={timer} />
+                <Timer time={timerPause} />
             </div>
             <div className="controls">
                 <Control name="play" onClick={startTimer}/>
