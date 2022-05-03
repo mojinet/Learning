@@ -5,8 +5,8 @@ import Timer from "./Timer";
 import Progress from "./Progress";
 
 function Pomodoro(){
-    const TIMER_WORK = 2
-    const TIMER_PAUSE = 5
+    const TIMER_WORK = 52*60
+    const TIMER_PAUSE = 17*60
     const [timer, setTimer] = useState(TIMER_WORK)
     const [timerPause, setTimerPause] = useState(TIMER_PAUSE)
     const [intervalId, setIntervalId] = useState(0)
@@ -48,7 +48,7 @@ function Pomodoro(){
 
     return (
         <div className="Pomodoro">
-            <Progress timerWork={timer} timerPause={timerPause}/>
+            <Progress timerWork={timer} timerPause={timerPause} totalWork={TIMER_WORK} totalPause={TIMER_PAUSE}/>
             <div className="timers">
                 <Timer time={timer} />
                 <Timer time={timerPause} />
