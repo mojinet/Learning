@@ -1,0 +1,53 @@
+.App {
+  background-color: #2a2929;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newTask{
+  width: 50%;
+  height: 100px;
+  background-color: #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 3rem;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.newTask:hover{
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+}
+
+.popUpTask{
+  position: absolute;
+  z-index: 100;
+  width: 75vw;
+  height: 75vh;
+  background-color: #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input{
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.closed-cross{
+  position: absolute;
+  top : 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.hidden{
+  display: none;
+}
