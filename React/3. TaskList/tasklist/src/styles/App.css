@@ -2,6 +2,7 @@
   background-color: #2a2929;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -9,7 +10,7 @@
 .newTask{
   width: 50%;
   height: 100px;
-  background-color: #e2e2e2;
+  background-color: #9d9d9d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,8 +28,8 @@
 .popUpTask{
   position: absolute;
   z-index: 100;
-  width: 75vw;
-  height: 75vh;
+  width: 50vw;
+  height: 25vh;
   background-color: #e2e2e2;
   display: flex;
   justify-content: center;
@@ -50,4 +51,17 @@ input{
 
 .hidden{
   display: none;
+}
+
+.taskList{
+  width: 50vw;
+  background-color: #f1f1f1;
+}
+
+.task{
+  margin: 1rem;
+  padding: 1rem;
+  color: #f1f1f1;
+  font-weight: bold;
+  background-color: #646464;
 }
