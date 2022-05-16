@@ -13,7 +13,7 @@ $password = '';
 // Connexion à la base de données
 try{
     $db = new PDO($dsn,$username,$password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); # Parametre pour renvoyer les erreur sous forme d'exception
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); # Parametre pour renvoyer les erreur sous forme d'exception, renverra une instance de PDOExeption en cas d'erreur
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); # Parametre pour l'affichage des erreur
     print("Connexion Réussite \n");
 }catch (PDOException $e){
@@ -70,6 +70,12 @@ $stmt->execute(); # Puis on execute
 // 4 fermeture
 unset($stmt);
 
+// transaction
+# par defaut les transaction sont en mode auto-commit : chaque requete effectue sa propres transaction
+$db->beginTransaction(); # On débute la transaction
+$db->exec(); # On execute les requetes
+$db->commit(); # On valide la transaction
+$db->rollBack(); # On annule la transaction, sera aussi annuler si on ne commit() pas
 
 // fermeture de la connexion
 unset($db);
