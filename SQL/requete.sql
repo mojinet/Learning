@@ -40,7 +40,7 @@ ORDER BY Pays, Ville
 SELECT * FROM Produit
 WHERE QteParUnit LIKE '%bouteille%'
    OR QteParUnit LIKE '%canette%'
--- 5.2- Lister les fournisseurs français, en affichant uniquement le nom, le contact et la ville, triés par ville
+-- 5.2- Lister les fournisseurs français, en affichant uniquement le nom, le contact.php et la ville, triés par ville
 SELECT Societe, Contact, Ville FROM Fournisseur
 WHERE Pays = "France"
 ORDER BY Ville
